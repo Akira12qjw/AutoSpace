@@ -9,12 +9,13 @@ import { HtmlLabel } from '../atoms/HtmlLabel'
 import { HtmlInput } from '../atoms/HtmlInput'
 import { Button } from '../atoms/Button'
 import Link from 'next/link'
-
+import { useTranslation } from 'react-i18next'
 export interface ISignupFormProps {
   className?: string
   role?: Role
 }
 export const RegisterForm = ({ className, role }: ISignupFormProps) => {
+  const { t } = useTranslation('register')
   const {
     register,
     handleSubmit,
@@ -51,7 +52,7 @@ export const RegisterForm = ({ className, role }: ISignupFormProps) => {
       <HtmlLabel title="Email" error={errors.email?.message}>
         <HtmlInput
           className="text-black"
-          placeholder="Enter the email."
+          placeholder={t('Enter the email.')}
           {...register('email')}
         />
       </HtmlLabel>
@@ -63,10 +64,10 @@ export const RegisterForm = ({ className, role }: ISignupFormProps) => {
           {...register('password')}
         />
       </HtmlLabel>
-      <HtmlLabel title="Display name" error={errors.name?.message}>
+      <HtmlLabel title={t('Display Name')} error={errors.name?.message}>
         <HtmlInput
           className="text-black"
-          placeholder="Enter your name."
+          placeholder={t('Enter your name.')}
           {...register('name')}
         />
       </HtmlLabel>
@@ -76,15 +77,14 @@ export const RegisterForm = ({ className, role }: ISignupFormProps) => {
         </div>
       ) : null}
       <Button type="submit" fullWidth loading={loading}>
-        Register
+        {t('Register')}
       </Button>
       <div className="mt-4 text-sm ">
-        Already have an autospace account?
+        {t('Already have an autospace account?')}
         <br />
         <Link href="/login" className="font-bold underline underline-offset-4">
-          Login
+          {t('Login now.')}
         </Link>{' '}
-        now.
       </div>
     </Form>
   )

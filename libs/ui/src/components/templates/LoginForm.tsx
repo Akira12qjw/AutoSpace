@@ -8,11 +8,12 @@ import Link from 'next/link'
 import { signIn } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
-
+import { useTranslation } from 'react-i18next'
 export interface ILoginFormProps {
   className?: string
 }
 export const LoginForm = ({ className }: ILoginFormProps) => {
+  const { t } = useTranslation('login')
   const {
     register,
     handleSubmit,
@@ -59,18 +60,17 @@ export const LoginForm = ({ className }: ILoginFormProps) => {
         />
       </HtmlLabel>
       <Button type="submit" loading={loading}>
-        Submit
+        {t('Submit')}
       </Button>
       <div className="mt-4 text-sm">
-        Do not have an autospace account?
+        {t('Do not have an autospace account?')}
         <br />
         <Link
           href="/register"
           className="font-bold underline underline-offset-4"
         >
-          Create one
+          {t('Create one now.')}
         </Link>{' '}
-        now.
       </div>
     </Form>
   )
