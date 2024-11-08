@@ -6,7 +6,9 @@ import { SessionProvider } from '@autospace/ui/src/components/molecules/SessionP
 import { Header } from '@autospace/ui/src/components/organisms/Header'
 import { ToastContainer } from '@autospace/ui/src/components/molecules/Toast'
 import { MenuItem } from '@autospace/util/types'
+import { useTranslation } from 'react-i18next'
 import { Container } from '@autospace/ui/src/components/atoms/Container'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
