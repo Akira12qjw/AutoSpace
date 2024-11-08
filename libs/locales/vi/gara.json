@@ -1,0 +1,23 @@
+{
+  "DisplayName": "Tên hiển thị",
+  "Garage name": "Tên Garage",
+  "Description": "Mô tả",
+  "Describe": "Mô tả Garage",
+  "Address": "Địa chỉ",
+  "123,street name": "123, Lê Văn Việt",
+  "AddSlot": "Thêm slot",
+  "Submit": "Đăng kí Garage",
+  "CAR": "Ô TÔ",
+  "BIKE": "XE MÁY",
+  "BICYCLE": "XE ĐẠP",
+  "HEAVY": "XE TẢI",
+  "VehicleType": "Loại phương tiện",
+  "Price/Hr": "đồng/giờ",
+  "NumberSlot": "Số lượng chỗ",
+  "Length": "Chiều dài",
+  "Width": "Chiều rộng",
+  "Height": "Chiều cao",
+  "optional": "tùy chọn",
+  "remove": "xóa chỗ",
+  "createSlot": "Thêm chỗ"
+}

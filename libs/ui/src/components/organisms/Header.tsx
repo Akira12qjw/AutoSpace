@@ -20,7 +20,7 @@ export type IHeaderProps = {
 } & BaseComponent
 
 export const Header = ({ type, menuItems }: IHeaderProps) => {
-  console.log(menuItems)
+  // console.log(menuItems)
 
   const { i18n } = useTranslation()
   const { t } = useTranslation(['home', 'info'])
@@ -36,7 +36,7 @@ export const Header = ({ type, menuItems }: IHeaderProps) => {
 
     label: t(`aside filter.${item.label}`),
   }))
-  console.log('translatedMenuItems', translatedMenuItems)
+  // console.log('translatedMenuItems', translatedMenuItems)
 
   return (
     <header>

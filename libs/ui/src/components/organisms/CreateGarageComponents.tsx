@@ -13,7 +13,7 @@ import { SlotType } from '@autospace/network/src/gql/generated'
 import { HtmlLabel } from '../atoms/HtmlLabel'
 import { HtmlSelect } from '../atoms/HtmlSelect'
 import { HtmlInput } from '../atoms/HtmlInput'
-
+import { useTranslation } from 'react-i18next'
 export const GarageMapMarker = () => {
   const { location } = useWatch<FormTypeCreateGarage>()
   const { setValue } = useFormContext<FormTypeCreateGarage>()
@@ -36,6 +36,7 @@ export const GarageMapMarker = () => {
 }
 
 export const AddSlots = () => {
+  const { t } = useTranslation(['garage'])
   const {
     control,
     register,
@@ -72,12 +73,12 @@ export const AddSlots = () => {
                 remove(slotIndex)
               }}
             >
-              remove slot type
+              {t('remove')}
             </Button>
           </div>
           <div className="grid grid-cols-3 gap-2">
             <HtmlLabel
-              title="Vehicle type"
+              title={t('VehicleType')}
               error={errors.slotTypes?.[slotIndex]?.type?.toString()}
             >
               <HtmlSelect
@@ -86,13 +87,13 @@ export const AddSlots = () => {
               >
                 {Object.values(SlotType).map((type) => (
                   <option key={type} value={type}>
-                    {type}
+                    {t(`${type}`)}
                   </option>
                 ))}
               </HtmlSelect>
             </HtmlLabel>
             <HtmlLabel
-              title="Price/hr"
+              title={t('Price/Hr')}
               optional
               error={errors.slotTypes?.[slotIndex]?.pricePerHour?.message}
             >
@@ -106,7 +107,7 @@ export const AddSlots = () => {
             </HtmlLabel>
 
             <HtmlLabel
-              title="Number of slots"
+              title={t('NumberSlot')}
               optional
               error={errors.slotTypes?.[slotIndex]?.count?.message}
             >
@@ -120,7 +121,7 @@ export const AddSlots = () => {
             </HtmlLabel>
 
             <HtmlLabel
-              title="Length"
+              title={t('Length')}
               optional
               error={errors.slotTypes?.[slotIndex]?.length?.message}
             >
@@ -133,7 +134,7 @@ export const AddSlots = () => {
               />
             </HtmlLabel>
             <HtmlLabel
-              title="Width"
+              title={t('Width')}
               optional
               error={errors.slotTypes?.[slotIndex]?.width?.message}
             >
@@ -146,7 +147,7 @@ export const AddSlots = () => {
               />
             </HtmlLabel>
             <HtmlLabel
-              title="Height"
+              title={t('Height')}
               optional
               error={errors.slotTypes?.[slotIndex]?.height?.message}
             >
@@ -176,7 +177,7 @@ export const AddSlots = () => {
           })
         }}
       >
-        <IconPlus className="w-4 h-4" /> Add slots
+        <IconPlus className="w-4 h-4" /> {t('AddSlot')}
       </Button>
     </div>
   )

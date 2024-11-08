@@ -34,8 +34,9 @@ export const ManageValets = ({
     <div className="p-2 space-y-3 bg-gray-25">
       <div className="text-xl font-bold">Valet</div>
       <p className="text-sm text-gray">
-        Our valets will whisk your car away to its reserved spot and bring it
-        back when you&apos;re ready. It&apos;s like magic, but with cars!
+        Nhân viên phục vụ của chúng tôi sẽ đưa xe của bạn đến nơi đã đặt trước
+        và mang xe trở lại khi bạn đã sẵn sàng. Giống như phép thuật, nhưng với
+        xe hơi!
       </p>
 
       <Switch
@@ -66,9 +67,9 @@ export const ManageValets = ({
         <div>
           <div className="mb-6 space-y-3">
             <p className="text-sm text-gray">
-              Want your car delivered somewhere else? No problem! Choose a
-              different drop-off point and we&apos;ll make sure your ride is
-              there waiting for you.
+              Bạn muốn xe của mình được giao đến nơi khác? Không vấn đề gì! Hãy
+              chọn một điểm trả xe khác và chúng tôi sẽ đảm bảo xe của bạn đang
+              ở đó.
             </p>
             <Switch
               checked={valet?.differentLocations || false}
@@ -86,7 +87,7 @@ export const ManageValets = ({
                   })
                 }
               }}
-              label={'Add a different drop off location?'}
+              label={'Chọn điểm trả xe ở nơi khác?'}
             />
           </div>
           <Map

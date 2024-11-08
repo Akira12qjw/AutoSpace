@@ -1,0 +1,22 @@
+{
+  "Display Name": "Display name",
+  "Garage name": "Garage name",
+  "Description": "Description",
+  "Describe": "Describe",
+  "Address": "Address",
+  "123,street name": "123,street name",
+  "AddSlot": "Add slot",
+  "CAR": "CAR",
+  "BIKE": "BIKE",
+  "BICYCLE": "BICYCLE",
+  "HEAVY": "HEAVY",
+  "VehicleType": "Vehicle Type",
+  "Price/Hr": "Price/Hr",
+  "NumberSlot": "Number Of Slots",
+  "Length": "Length",
+  "Width": "Width",
+  "Height": "Height",
+  "optional": "optional",
+  "remove": "remove slot type",
+  "createSlot": "Create Slots"
+}

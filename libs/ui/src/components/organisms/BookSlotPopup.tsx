@@ -128,7 +128,7 @@ export const BookSlotPopup = ({
         <DateRangeBookingInfo startTime={startTime} endTime={endTime} />
 
         <div className="flex flex-wrap gap-2 mt-2">
-          <HtmlLabel title="Slot type" error={errors.type?.message}>
+          <HtmlLabel title="Loại phương tiện" error={errors.type?.message}>
             <Controller
               name="type"
               control={control}
@@ -160,7 +160,7 @@ export const BookSlotPopup = ({
                                   <span className="text-lg font-bold">
                                     {slot.pricePerHour} VNĐ
                                   </span>
-                                  /hr
+                                  /giờ
                                 </div>
                               </div>
 
@@ -195,10 +195,13 @@ export const BookSlotPopup = ({
           />
         </HtmlLabel>
 
-        <HtmlLabel title="Vehicle number" error={errors.vehicleNumber?.message}>
+        <HtmlLabel
+          title="Biển số phương tiện"
+          error={errors.vehicleNumber?.message}
+        >
           <HtmlInput placeholder="KA01AB1234" {...register('vehicleNumber')} />
         </HtmlLabel>
-        <HtmlLabel title="Phone number" error={errors.phoneNumber?.message}>
+        <HtmlLabel title="Số điện thoại" error={errors.phoneNumber?.message}>
           <HtmlInput placeholder="+910000000000" {...register('phoneNumber')} />
         </HtmlLabel>
         <ManageValets garage={garage} />
@@ -206,24 +209,24 @@ export const BookSlotPopup = ({
         {totalPriceObj ? (
           <div className="mt-4">
             <CostTitleValue
-              title="Parking"
+              title="Thời gian đỗ xe"
               price={totalPriceObj.parkingCharge}
             />
             <CostTitleValue
-              title="Valet Pickup"
+              title="Pickup"
               price={totalPriceObj.valetChargePickup}
             />
             <CostTitleValue
-              title="Valet Dropoff"
+              title="Dropoff"
               price={totalPriceObj.valetChargeDropoff}
             />
 
-            <CostTitleValue title="Total" price={totalPrice} />
+            <CostTitleValue title="Tổng cộng" price={totalPrice} />
           </div>
         ) : null}
 
         <Button loading={booking} type="submit" className="w-full mt-2">
-          Book now
+          Đặt chỗ
         </Button>
       </Form>
     </div>
