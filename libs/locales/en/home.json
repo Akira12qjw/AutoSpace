@@ -5,6 +5,12 @@
     "Need": "Need",
     "parking": "parking?",
     "Smart parking": "Smart parking",
-    "Search now": "Search now"
+    "Search now": "Search now",
+    "Search": "Search",
+    "Bookings": "Bookings",
+    "Garages": "Garages",
+    "Admins": "Admins",
+    "New Garage": "New Garage",
+    "Valets": "Valets"
   }
 }
