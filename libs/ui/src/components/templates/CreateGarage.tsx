@@ -26,8 +26,9 @@ import { CenterOfMap, DefaultZoomControls } from '../organisms/map/ZoomControls'
 import { useFormContext } from 'react-hook-form'
 import { AddSlots, GarageMapMarker } from '../organisms/CreateGarageComponents'
 import { ToastContainer, toast } from '../molecules/Toast'
-
+import { useTranslation } from 'react-i18next'
 const CreateGarageContent = () => {
+  const { t } = useTranslation(['garage'])
   const {
     register,
     handleSubmit,
@@ -85,21 +86,33 @@ const CreateGarageContent = () => {
             },
           )}
         >
-          <HtmlLabel error={errors.displayName?.message} title="Display Name">
-            <HtmlInput {...register('displayName')} placeholder="Garage name" />
+          <HtmlLabel
+            error={errors.displayName?.message}
+            title={t('Display Name')}
+          >
+            <HtmlInput
+              {...register('displayName')}
+              placeholder={t('Garage name')}
+            />
           </HtmlLabel>
-          <HtmlLabel title="Description" error={errors.description?.message}>
+          <HtmlLabel
+            title={t('Description')}
+            error={errors.description?.message}
+          >
             <HtmlTextArea
               cols={5}
               {...register('description')}
-              placeholder="Describe..."
+              placeholder={t('Describe')}
             />
           </HtmlLabel>
-          <HtmlLabel title="Address" error={errors.location?.address?.message}>
+          <HtmlLabel
+            title={t('Address')}
+            error={errors.location?.address?.message}
+          >
             <HtmlTextArea
               cols={5}
               {...register('location.address')}
-              placeholder="123, street name"
+              placeholder={t('123,street name')}
             />
           </HtmlLabel>
           <ImagePreview srcs={images} clearImage={() => resetField('images')}>
@@ -119,7 +132,7 @@ const CreateGarageContent = () => {
           </ImagePreview>
           <AddSlots />
           <Button loading={uploading || loading} type="submit">
-            Submit
+            {t('Submit')}
           </Button>
         </Form>
       </div>

@@ -39,8 +39,8 @@ export const CreateCompany = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Create Company</Button>
-      <Dialog open={open} setOpen={setOpen} title="Create company">
+      <Button onClick={() => setOpen(true)}>Đăng kí công ty</Button>
+      <Dialog open={open} setOpen={setOpen} title="Đăng kí công ty">
         <Form
           onSubmit={handleSubmit(async (data) => {
             await createCompany({
@@ -52,15 +52,15 @@ export const CreateCompany = () => {
             })
           })}
         >
-          <HtmlLabel title="Company name" error={errors.displayName?.message}>
+          <HtmlLabel title="Tên công ty" error={errors.displayName?.message}>
             <HtmlInput
-              placeholder="Company name"
+              placeholder="Công ty của bạn"
               {...register('displayName')}
             />
           </HtmlLabel>
-          <HtmlLabel title="Description" error={errors.displayName?.message}>
+          <HtmlLabel title="Mô tả công ty" error={errors.displayName?.message}>
             <HtmlTextArea
-              placeholder="Describe your parking company"
+              placeholder="Mô tả công ty"
               {...register('description')}
             />
           </HtmlLabel>
@@ -71,14 +71,11 @@ export const CreateCompany = () => {
               readOnly
             />
           </HtmlLabel>
-          <HtmlLabel title="Manager name" error={errors.managerName?.message}>
-            <HtmlInput
-              placeholder="Manager name"
-              {...register('managerName')}
-            />
+          <HtmlLabel title="Tên quản lý" error={errors.managerName?.message}>
+            <HtmlInput placeholder="Tên quản lý" {...register('managerName')} />
           </HtmlLabel>
           <Button loading={loading} type="submit">
-            Submit
+            Đăng kí
           </Button>
         </Form>
       </Dialog>

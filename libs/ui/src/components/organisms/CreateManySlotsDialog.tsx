@@ -13,10 +13,10 @@ import { HtmlSelect } from '../atoms/HtmlSelect'
 import { HtmlInput } from '../atoms/HtmlInput'
 import { Form } from '../atoms/Form'
 import { toast } from '../molecules/Toast'
-
+import { useTranslation } from 'react-i18next'
 export const CreateManySlotsDialog = ({ garageId }: { garageId: number }) => {
   const [open, setOpen] = useState(false)
-
+  const { t } = useTranslation(['garage'])
   const {
     register,
     handleSubmit,
@@ -50,7 +50,7 @@ export const CreateManySlotsDialog = ({ garageId }: { garageId: number }) => {
           +
         </div>
       </Button>
-      <Dialog open={open} setOpen={setOpen} title={'Create slots'}>
+      <Dialog open={open} setOpen={setOpen} title={t('createSlot')}>
         <Form
           onSubmit={handleSubmit(async ({ count, ...data }) => {
             await createManySlots({
@@ -59,62 +59,65 @@ export const CreateManySlotsDialog = ({ garageId }: { garageId: number }) => {
           })}
         >
           <div className="grid grid-cols-2 gap-2">
-            <HtmlLabel title="Slot type" error={errors.type?.toString()}>
+            <HtmlLabel title={t('VehicleType')} error={errors.type?.toString()}>
               <HtmlSelect placeholder="Slot type" {...register(`type`)}>
                 {Object.values(SlotType).map((type) => (
                   <option key={type} value={type}>
-                    {type}
+                    {t(`${type}`)}
                   </option>
                 ))}
               </HtmlSelect>
             </HtmlLabel>
-            <HtmlLabel title="Price/hr" error={errors.pricePerHour?.message}>
+            <HtmlLabel
+              title={t('Price/Hr')}
+              error={errors.pricePerHour?.message}
+            >
               <HtmlInput
                 type="number"
-                placeholder="Price per hour"
+                placeholder="Giá thuê mỗi giờ"
                 {...register(`pricePerHour`, {
                   valueAsNumber: true,
                 })}
               />
             </HtmlLabel>
-            <HtmlLabel title="Number of slots" error={errors.count?.message}>
+            <HtmlLabel title={t('NumberSlot')} error={errors.count?.message}>
               <HtmlInput
                 type="number"
-                placeholder="Enter the number of slots"
+                placeholder="Số lượng chỗ"
                 {...register(`count`, {
                   valueAsNumber: true,
                 })}
               />
             </HtmlLabel>
-            <HtmlLabel title="Length" error={errors.length?.message}>
+            <HtmlLabel title={t('Length')} error={errors.length?.message}>
               <HtmlInput
                 type="number"
-                placeholder="Enter the length in ft"
+                placeholder="Chiều dài"
                 {...register('length', {
                   valueAsNumber: true,
                 })}
               />
             </HtmlLabel>
-            <HtmlLabel title="Width" error={errors.width?.message}>
+            <HtmlLabel title={t('Width')} error={errors.width?.message}>
               <HtmlInput
                 type="number"
-                placeholder="Enter the width in ft"
+                placeholder="Chiều rộng"
                 {...register(`width`, {
                   valueAsNumber: true,
                 })}
               />
             </HtmlLabel>
-            <HtmlLabel title="Height" error={errors.height?.message}>
+            <HtmlLabel title={t('Height')} error={errors.height?.message}>
               <HtmlInput
                 type="number"
-                placeholder="Enter the height in ft"
+                placeholder="Chiều cao"
                 {...register(`height`, {
                   valueAsNumber: true,
                 })}
               />
             </HtmlLabel>
             <Button type="submit" loading={loading}>
-              Submit
+              {t('Submit')}
             </Button>
           </div>
         </Form>

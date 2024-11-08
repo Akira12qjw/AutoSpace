@@ -4,6 +4,30 @@ import { Prisma } from '@prisma/client'
 
 export const garagesSample: Prisma.GarageCreateInput[] = [
   {
+    displayName: 'Garage Khu E Hutech',
+    description: 'Khu E Hutech',
+    Company: { connect: { id: 1 } },
+    images: {
+      set: [
+        'https://res.cloudinary.com/dathl84tp/image/upload/v1730870233/autospace/create-a-cover-image-of-an-affordable-and-clean-parking-garage-in-brooklyn-new-york-the-picture-sh-825512221_kzvig6_xuaaqu.jpg',
+      ],
+    },
+    Slots: {
+      create: [
+        ...generateSlots({
+          type: 'BICYCLE',
+        }),
+      ],
+    },
+    Address: {
+      create: {
+        address: 'Lê Văn Việt, Hiệp Phú, Quận 9, Hồ Chí Minh, Việt Nam',
+        lat: 10.84759,
+        lng: 106.776009,
+      },
+    },
+  },
+  {
     displayName: 'Manhattan Garage 1',
     description: 'Secure parking in the heart of Manhattan',
     Company: { connect: { id: 1 } },
