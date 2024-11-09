@@ -47,7 +47,7 @@ export const AddValet = () => {
         widthClassName="max-w-xl"
         open={open}
         setOpen={setOpen}
-        title={'Create Valet'}
+        title={'Thêm nhân viên'}
       >
         <Form
           onSubmit={handleSubmit(async ({ image, ...data }) => {
@@ -58,17 +58,17 @@ export const AddValet = () => {
           })}
         >
           <HtmlLabel title="UID" error={errors.uid?.message}>
-            <HtmlInput placeholder="uid of the valet" {...register('uid')} />
+            <HtmlInput placeholder="uid của nhân viên" {...register('uid')} />
           </HtmlLabel>
-          <HtmlLabel title="Display Name" error={errors.displayName?.message}>
+          <HtmlLabel title="Tên nhân viên" error={errors.displayName?.message}>
             <HtmlInput
-              placeholder="Name of the valet"
+              placeholder="Điền tên nhân viên"
               {...register('displayName')}
             />
           </HtmlLabel>
-          <HtmlLabel title="Licence ID" error={errors.licenceID?.message}>
+          <HtmlLabel title="Mã bằng lái" error={errors.licenceID?.message}>
             <HtmlInput
-              placeholder="Licence ID of the valet"
+              placeholder="Mã bằng lái nhân viên"
               {...register('licenceID')}
             />
           </HtmlLabel>
@@ -87,7 +87,7 @@ export const AddValet = () => {
             />
           </ImagePreview>
           <Button loading={uploading || loading} type="submit">
-            Create valet
+            Thêm nhân viên
           </Button>
         </Form>
       </Dialog>

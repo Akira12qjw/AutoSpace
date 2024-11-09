@@ -63,8 +63,8 @@ export const AllSlotTypes = [
 
 export const formDefaultValuesSearchGarages: DefaultValues<FormTypeSearchGarage> =
   {
-    pricePerHour: [0, 200],
-    width: [0, 20],
+    pricePerHour: [0, 200000],
+    width: [0, 100],
     height: [0, 100],
     length: [0, 100],
     types: AllSlotTypes.sort(),

@@ -13,8 +13,8 @@ export const ListCustomerBookings = () => {
         onChange={(e, v) => setValue(v)}
         aria-label="bookings"
       >
-        <Tab label={'PAST'} />
-        <Tab label={'ON GOING'} />
+        <Tab label={'LỊCH SỬ'} />
+        <Tab label={'ĐANG DIỄN RA'} />
       </Tabs>
       <TabPanel value={value} index={0}>
         <ShowCustomerBookings

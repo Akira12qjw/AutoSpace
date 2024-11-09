@@ -48,7 +48,7 @@ export const FilterSidebar = () => {
             }) => {
               return (
                 <div>
-                  <FilterHeading dirty={isDirty} title="Vehicle type" />
+                  <FilterHeading dirty={isDirty} title="Loại phương tiện" />
                   <ToggleButtonGroup
                     value={value}
                     onChange={(_, value) => {
@@ -83,7 +83,7 @@ export const FilterSidebar = () => {
             }) => {
               return (
                 <div className="w-full">
-                  <FilterHeading dirty={isDirty} title="Price per hour" />
+                  <FilterHeading dirty={isDirty} title="Tiền thuê/giờ" />
                   <RangeSlider
                     min={defaultValues?.pricePerHour?.[0]}
                     max={defaultValues?.pricePerHour?.[1]}
@@ -91,7 +91,7 @@ export const FilterSidebar = () => {
                     value={value}
                     onChange={onChange}
                     valueLabelFormat={(sliderValue) =>
-                      `$ ${sliderValue.toLocaleString()}`
+                      `${sliderValue.toLocaleString()} Đ`
                     }
                     step={5}
                   />
@@ -109,14 +109,14 @@ export const FilterSidebar = () => {
             }) => {
               return (
                 <div className="w-full">
-                  <FilterHeading dirty={isDirty} title="Width" />
+                  <FilterHeading dirty={isDirty} title="Chiều rộng" />
                   <RangeSlider
                     min={defaultValues?.width?.[0]}
                     max={defaultValues?.width?.[1]}
                     value={value}
                     onChange={onChange}
                     valueLabelFormat={(sliderValue) =>
-                      `${sliderValue.toLocaleString()} ft`
+                      `${sliderValue.toLocaleString()} m`
                     }
                     step={2}
                   />
@@ -134,14 +134,14 @@ export const FilterSidebar = () => {
             }) => {
               return (
                 <div className="w-full">
-                  <FilterHeading dirty={isDirty} title="Height" />
+                  <FilterHeading dirty={isDirty} title="Chiều cao" />
                   <RangeSlider
                     min={defaultValues?.height?.[0]}
                     max={defaultValues?.height?.[1]}
                     value={value}
                     onChange={onChange}
                     valueLabelFormat={(sliderValue) =>
-                      `${sliderValue.toLocaleString()} ft`
+                      `${sliderValue.toLocaleString()} m`
                     }
                     step={2}
                   />
@@ -159,14 +159,14 @@ export const FilterSidebar = () => {
             }) => {
               return (
                 <div className="w-full">
-                  <FilterHeading dirty={isDirty} title="Length" />
+                  <FilterHeading dirty={isDirty} title="Chiều dài" />
                   <RangeSlider
                     min={defaultValues?.length?.[0]}
                     max={defaultValues?.length?.[1]}
                     value={value}
                     onChange={onChange}
                     valueLabelFormat={(sliderValue) =>
-                      `${sliderValue.toLocaleString()} ft`
+                      `${sliderValue.toLocaleString()} m`
                     }
                     step={5}
                   />

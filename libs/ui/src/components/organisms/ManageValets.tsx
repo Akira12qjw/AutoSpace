@@ -26,8 +26,8 @@ export const ManageValets = ({
   const lat = garage.address?.lat
   const lng = garage.address?.lng
   if (!lat || !lng) {
-    toast('Garage location not set.')
-    return <div>Something went wrong.</div>
+    toast('Vị trí gara chưa được thiết lập.')
+    return <div>Có gì đó sai.</div>
   }
 
   return (

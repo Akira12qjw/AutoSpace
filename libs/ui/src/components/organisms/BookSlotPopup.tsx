@@ -43,6 +43,9 @@ export const BookSlotPopup = ({
 
   const { startTime, endTime, phoneNumber, type, valet, vehicleNumber } =
     useWatch<FormTypeBookSlot>()
+  console.log(
+    garage.availableSlots.find((slot) => slot.type === type)?.pricePerHour,
+  )
 
   const pricePerHour = garage.availableSlots.find(
     (slot) => slot.type === type,
