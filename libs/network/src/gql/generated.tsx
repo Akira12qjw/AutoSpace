@@ -2091,6 +2091,7 @@ export type BookingFieldsFragment = {
   __typename?: 'Booking'
   id: number
   pricePerHour?: number | null
+  totalPrice?: number | null
   endTime: any
   startTime: any
   vehicleNumber: string
@@ -2209,6 +2210,7 @@ export type BookingsForGarageQuery = {
     __typename?: 'Booking'
     id: number
     pricePerHour?: number | null
+    totalPrice?: number | null
     endTime: any
     startTime: any
     vehicleNumber: string
@@ -2643,6 +2645,7 @@ export const BookingFieldsFragmentDoc = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'pricePerHour' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'totalPrice' } },
           { kind: 'Field', name: { kind: 'Name', value: 'endTime' } },
           { kind: 'Field', name: { kind: 'Name', value: 'startTime' } },
           { kind: 'Field', name: { kind: 'Name', value: 'vehicleNumber' } },
@@ -4016,6 +4019,7 @@ export const BookingsForCustomerDocument = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'pricePerHour' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'totalPrice' } },
           { kind: 'Field', name: { kind: 'Name', value: 'endTime' } },
           { kind: 'Field', name: { kind: 'Name', value: 'startTime' } },
           { kind: 'Field', name: { kind: 'Name', value: 'vehicleNumber' } },
@@ -4314,6 +4318,7 @@ export const BookingsForGarageDocument = {
         selections: [
           { kind: 'Field', name: { kind: 'Name', value: 'id' } },
           { kind: 'Field', name: { kind: 'Name', value: 'pricePerHour' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'totalPrice' } },
           { kind: 'Field', name: { kind: 'Name', value: 'endTime' } },
           { kind: 'Field', name: { kind: 'Name', value: 'startTime' } },
           { kind: 'Field', name: { kind: 'Name', value: 'vehicleNumber' } },

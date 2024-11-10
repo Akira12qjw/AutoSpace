@@ -88,7 +88,7 @@ const CreateGarageContent = () => {
         >
           <HtmlLabel
             error={errors.displayName?.message}
-            title={t('Display Name')}
+            title={t('DisplayName')}
           >
             <HtmlInput
               {...register('displayName')}

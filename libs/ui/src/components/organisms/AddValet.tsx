@@ -42,7 +42,7 @@ export const AddValet = () => {
 
   return (
     <div>
-      <Button onClick={() => setOpen(true)}>Create Valet</Button>
+      <Button onClick={() => setOpen(true)}>Thêm nhân viên</Button>
       <Dialog
         widthClassName="max-w-xl"
         open={open}
