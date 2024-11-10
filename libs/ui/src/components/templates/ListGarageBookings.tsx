@@ -3,12 +3,13 @@ import { useState } from 'react'
 import { Tab, TabPanel, Tabs } from '../molecules/Tabs'
 import { ShowGarageBookings } from '../organisms/ShowGarageBookings'
 import { BookingStatus } from '@autospace/network/src/gql/generated'
+import ShowRevenue from '../organisms/ShowRevenue'
 
 export interface IListBookingsProps {
   garageId: number
 }
 export const ListGarageBookings = ({ garageId }: IListBookingsProps) => {
-  const [value, setValue] = useState<0 | 1 | 2>(0)
+  const [value, setValue] = useState<0 | 1 | 2 | 3>(0) // Cập nhật thêm giá trị cho tab mới
 
   return (
     <div>
@@ -20,6 +21,7 @@ export const ListGarageBookings = ({ garageId }: IListBookingsProps) => {
         <Tab label={'IN'} />
         <Tab label={'OUT'} />
         <Tab label={'RESOLVED'} />
+        <Tab label={'REVENUE'} /> {/* Tab mới cho doanh thu */}
       </Tabs>
       <TabPanel value={value} index={0}>
         <ShowGarageBookings
@@ -47,6 +49,11 @@ export const ListGarageBookings = ({ garageId }: IListBookingsProps) => {
           garageId={garageId}
           statuses={[BookingStatus.CheckedOut]}
         />
+      </TabPanel>
+      <TabPanel value={value} index={3}>
+        {' '}
+        {/* TabPanel mới cho doanh thu */}
+        <ShowRevenue garageId={garageId} />
       </TabPanel>
     </div>
   )
