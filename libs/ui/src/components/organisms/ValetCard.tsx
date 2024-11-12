@@ -77,7 +77,7 @@ export const ValetCard = ({
   const handleToggleDialog = () => {
     setSelectedValetId(isSelected ? null : valet.uid)
   }
-
+  console.log('Phone: ', valet.phoneNumber)
   return (
     <>
       <div className="w-64 space-y-2 flex-row justify-between">
@@ -97,6 +97,9 @@ export const ValetCard = ({
           <div className="mb-1 text-lg text-gray-600">{valet.uid}</div>
           <div className="mb-1 text-lg text-gray-600">
             Bằng lái: {valet.licenceID}
+          </div>
+          <div className="mb-1 text-lg text-gray-600">
+            Số điện thoại: {valet.phoneNumber}
           </div>
           <div className="text-lg text-gray-500">
             {format(new Date(valet.createdAt), 'PP')}

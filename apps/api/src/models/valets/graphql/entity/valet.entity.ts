@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Field, ObjectType } from '@nestjs/graphql'
 import { Valet as ValetType } from '@prisma/client'
 import { RestrictProperties } from 'src/common/dtos/common.input'
@@ -13,6 +14,8 @@ export class Valet implements RestrictProperties<Valet, ValetType> {
   licenceID: string
   @Field({ nullable: true })
   companyId: number
+  @Field({ nullable: true })
+  phoneNumber: string
   // Todo Add below to make optional fields optional.
   // @Field({ nullable: true })
 }

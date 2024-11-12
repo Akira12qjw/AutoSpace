@@ -59,6 +59,7 @@ type Manager {
 type Valet {
   image: String
   companyId: Float
+  phoneNumber: String
   uid: String!
   createdAt: DateTime!
   updatedAt: DateTime!
@@ -403,6 +404,7 @@ input ValetWhereInput {
   image: StringFilter
   licenceID: StringFilter
   companyId: IntFilter
+  phoneNumber: StringFilter
   Company: CompanyRelationFilter
   BookingTimeline: BookingTimelineListRelationFilter
   PickupAssignments: ValetAssignmentListRelationFilter
@@ -765,6 +767,7 @@ input ValetOrderByWithRelationInput {
   displayName: SortOrder
   image: SortOrder
   licenceID: SortOrder
+  phoneNumber: SortOrder
   companyId: SortOrder
   User: UserOrderByWithRelationInput
   Company: CompanyOrderByWithRelationInput
@@ -833,6 +836,7 @@ enum ValetScalarFieldEnum {
   displayName
   image
   licenceID
+  phoneNumber
   companyId
 }
 
@@ -1203,6 +1207,7 @@ input UpdateManagerInput {
 input CreateValetInput {
   image: String
   companyId: Float
+  phoneNumber: String
   uid: String!
   displayName: String!
   licenceID: String!
@@ -1211,6 +1216,7 @@ input CreateValetInput {
 input UpdateValetInput {
   image: String
   companyId: Float
+  phoneNumber: String
   uid: String!
   displayName: String
   licenceID: String

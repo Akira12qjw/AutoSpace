@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Field, InputType, PartialType } from '@nestjs/graphql'
 import { Prisma } from '@prisma/client'
 import {
@@ -28,6 +29,7 @@ export class ValetWhereInputStrict
   image: StringFilter
   licenceID: StringFilter
   companyId: IntFilter
+  phoneNumber: StringFilter
   Company: CompanyRelationFilter
   BookingTimeline: BookingTimelineListRelationFilter
   PickupAssignments: ValetAssignmentListRelationFilter

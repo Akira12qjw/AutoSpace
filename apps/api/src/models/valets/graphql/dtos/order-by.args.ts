@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Field, InputType, PartialType } from '@nestjs/graphql'
 import { Prisma } from '@prisma/client'
 import { RestrictProperties } from 'src/common/dtos/common.input'
@@ -27,6 +28,8 @@ export class ValetOrderByWithRelationInputStrict
   image: Prisma.SortOrder
   @Field(() => Prisma.SortOrder)
   licenceID: Prisma.SortOrder
+  @Field(() => Prisma.SortOrder)
+  phoneNumber: Prisma.SortOrder
   @Field(() => Prisma.SortOrder)
   companyId: Prisma.SortOrder
   Company: CompanyOrderByWithRelationInput
