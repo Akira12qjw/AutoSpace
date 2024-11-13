@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Field, InputType, PartialType } from '@nestjs/graphql'
 import { $Enums, BookingStatus, Prisma } from '@prisma/client'
 import {

@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Field, ObjectType } from '@nestjs/graphql'
 import { $Enums, BookingTimeline as BookingTimelineType } from '@prisma/client'
 import { RestrictProperties } from 'src/common/dtos/common.input'

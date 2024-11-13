@@ -98,7 +98,7 @@ model Valet {
     displayName String
     image       String?
     licenceID   String  @default("")
-
+    phoneNumber   String?
     companyId         Int?
     Company           Company?          @relation(fields: [companyId], references: [id])
     BookingTimeline   BookingTimeline[]

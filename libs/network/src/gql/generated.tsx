@@ -2168,12 +2168,14 @@ export type BookingsForCustomerQuery = {
         image?: string | null
         uid: string
         displayName: string
+        phoneNumber: string
       } | null
       returnValet?: {
         __typename?: 'Valet'
         image?: string | null
         uid: string
         displayName: string
+        phoneNumber: string
       } | null
     } | null
     slot: {
@@ -2356,6 +2358,7 @@ export type CompanyValetsQuery = {
     companyId?: number | null
     image?: string | null
     licenceID: string
+    phoneNumber: string
   }>
 }
 
@@ -4041,6 +4044,7 @@ export const BookingsForCustomerDocument = {
           { kind: 'Field', name: { kind: 'Name', value: 'image' } },
           { kind: 'Field', name: { kind: 'Name', value: 'uid' } },
           { kind: 'Field', name: { kind: 'Name', value: 'displayName' } },
+          { kind: 'Field', name: { kind: 'Name', value: 'phoneNumber' } },
         ],
       },
     },
@@ -4679,7 +4683,6 @@ export const BookingTimelineForGarageDocument = {
                         kind: 'Field',
                         name: { kind: 'Name', value: 'displayName' },
                       },
-                      
                     ],
                   },
                 },
@@ -4995,6 +4998,7 @@ export const CompanyValetsDocument = {
                 { kind: 'Field', name: { kind: 'Name', value: 'companyId' } },
                 { kind: 'Field', name: { kind: 'Name', value: 'image' } },
                 { kind: 'Field', name: { kind: 'Name', value: 'licenceID' } },
+                { kind: 'Field', name: { kind: 'Name', value: 'phoneNumber' } },
               ],
             },
           },
