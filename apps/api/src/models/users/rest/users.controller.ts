@@ -23,11 +23,20 @@ import { UserEntity } from './entity/user.entity'
 import { AllowAuthenticated, GetUser } from 'src/common/auth/auth.decorator'
 import { GetUserType } from 'src/common/types'
 import { checkRowLevelPermission } from 'src/common/auth/util'
+import { UsersService } from '../graphql/users.service'
+import {
+  LoginInput,
+  LoginOutput,
+  RegisterWithCredentialsInput,
+} from '../graphql/dtos/create-user.input'
 
 @ApiTags('users')
 @Controller('users')
 export class UsersController {
-  constructor(private readonly prisma: PrismaService) {}
+  constructor(
+    private readonly prisma: PrismaService,
+    private readonly usersService: UsersService,
+  ) {}
 
   @AllowAuthenticated()
   @ApiBearerAuth()
@@ -83,5 +92,13 @@ export class UsersController {
     const userInfo = await this.prisma.user.findUnique({ where: { uid } })
     checkRowLevelPermission(user, userInfo.uid)
     return this.prisma.user.delete({ where: { uid } })
+  }
+  @Post('register')
+  async register(@Body() registerDto: RegisterWithCredentialsInput) {
+    return this.usersService.registerWithCredentials(registerDto)
+  }
+  @Post('login')
+  async login(@Body() loginDto: LoginInput): Promise<LoginOutput> {
+    return this.usersService.login(loginDto) // Gọi đến UsersService
   }
 }
