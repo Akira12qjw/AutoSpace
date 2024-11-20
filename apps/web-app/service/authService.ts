@@ -1,12 +1,12 @@
 // authService.ts
-import axios from "axios";
+import axios from 'axios'
 
 // Nếu đang chạy trên máy ảo Android
-const API_URL = "http://localhost:3000";
+const API_URL = 'http://localhost:3000'
 
 export const signIn = async (credentials: {
-  email: string;
-  password: string;
+  email: string
+  password: string
 }) => {
   try {
     const response = await axios.post(
@@ -17,12 +17,12 @@ export const signIn = async (credentials: {
       },
       {
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
-      }
-    );
-    return response.data;
+      },
+    )
+    return response.data
   } catch (error) {
-    throw error;
+    throw error
   }
-};
+}

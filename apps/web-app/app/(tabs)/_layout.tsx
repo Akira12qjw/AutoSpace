@@ -73,7 +73,6 @@ export default function TabLayout() {
                   name={focused ? 'ticket' : 'ticket-outline'}
                   color={color}
                 />
-                
               </View>
             </TouchableOpacity>
           ),

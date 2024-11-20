@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import {
   View,
   Text,
@@ -6,14 +6,14 @@ import {
   StyleSheet,
   Pressable,
   Alert,
-} from "react-native";
-import { useForm, Controller } from "react-hook-form";
-import { router } from "expo-router";
+} from 'react-native'
+import { useForm, Controller } from 'react-hook-form'
+import { router } from 'expo-router'
 
 interface FormData {
-  email: string;
-  password: string;
-  name: string;
+  email: string
+  password: string
+  name: string
 }
 
 const REGISTER_MUTATION = `
@@ -22,7 +22,7 @@ const REGISTER_MUTATION = `
       uid
     }
   }
-`;
+`
 
 const FormInput = ({
   control,
@@ -32,12 +32,12 @@ const FormInput = ({
   secureTextEntry = false,
   placeholder,
 }: {
-  control: any;
-  name: keyof FormData;
-  title: string;
-  error?: string;
-  secureTextEntry?: boolean;
-  placeholder?: string;
+  control: any
+  name: keyof FormData
+  title: string
+  error?: string
+  secureTextEntry?: boolean
+  placeholder?: string
 }) => (
   <View style={styles.inputContainer}>
     <Text style={styles.label}>{title}</Text>
@@ -57,66 +57,66 @@ const FormInput = ({
     />
     {error && <Text style={styles.errorText}>{error}</Text>}
   </View>
-);
+)
 
 export default function Register() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false)
   const {
     control,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+  } = useForm<FormData>()
 
   const registerWithCredentials = async (variables: {
-    registerWithCredentialsInput: FormData;
+    registerWithCredentialsInput: FormData
   }) => {
-    return await fetch(process.env.NEXT_PUBLIC_API_URL + "/graphql", {
-      method: "POST",
+    return await fetch(process.env.NEXT_PUBLIC_API_URL + '/graphql', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({
         query: REGISTER_MUTATION,
         variables: variables,
       }),
     }).then(async (res) => {
-      const { data, errors } = await res.json();
+      const { data, errors } = await res.json()
       if (errors) {
-        console.log("Error", JSON.stringify(errors));
-        throw new Error(errors[0].message);
+        console.log('Error', JSON.stringify(errors))
+        throw new Error(errors[0].message)
       }
-      return { data };
-    });
-  };
+      return { data }
+    })
+  }
 
   const onSubmit = async (formData: FormData) => {
     try {
-      setLoading(true);
+      setLoading(true)
       const { data } = await registerWithCredentials({
         registerWithCredentialsInput: formData,
-      });
+      })
 
       if (data) {
         Alert.alert(
-          "Success",
+          'Success',
           `User ${data.registerWithCredentials.uid} created. 🎉`,
           [
             {
-              text: "OK",
+              text: 'OK',
               onPress: () => {
-                router.replace("/search");
+                router.replace('/search')
               },
             },
-          ]
-        );
+          ],
+        )
       }
     } catch (error) {
-      Alert.alert("Error");
-      console.log(error);
+      Alert.alert('Error')
+      console.log(error)
     } finally {
-      setLoading(false);
+      setLoading(false)
     }
-  };
+  }
 
   return (
     <View style={styles.container}>
@@ -158,30 +158,30 @@ export default function Register() {
         disabled={loading}
       >
         <Text style={styles.buttonText}>
-          {loading ? "Đang đăng ký..." : "Đăng Ký "}
+          {loading ? 'Đang đăng ký...' : 'Đăng Ký '}
         </Text>
       </Pressable>
 
       <View style={styles.footer}>
         <Text style={styles.footerText}>Đã có tài khoản?</Text>
-        <Pressable onPress={() => router.navigate("/login")}>
+        <Pressable onPress={() => router.navigate('/login')}>
           <Text style={styles.link}>Đăng Nhập</Text>
         </Pressable>
       </View>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   title: {
     fontSize: 28,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     marginBottom: 20,
-    textAlign: "center",
+    textAlign: 'center',
   },
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: 'center',
     paddingHorizontal: 20,
   },
   inputContainer: {
@@ -190,33 +190,33 @@ const styles = StyleSheet.create({
   label: {
     fontSize: 16,
     marginBottom: 8,
-    fontWeight: "500",
+    fontWeight: '500',
   },
   input: {
     borderWidth: 1,
-    borderColor: "#ccc",
+    borderColor: '#ccc',
     borderRadius: 8,
     padding: 12,
     fontSize: 16,
-    backgroundColor: "#fff",
+    backgroundColor: '#fff',
   },
   errorText: {
-    color: "red",
+    color: 'red',
     fontSize: 12,
     marginTop: 4,
   },
   errorSummary: {
-    color: "#666",
+    color: '#666',
     fontSize: 12,
     marginBottom: 16,
   },
   button: {
-    width: "100%",
+    width: '100%',
     height: 50,
-    backgroundColor: "#007AFF",
+    backgroundColor: '#007AFF',
     borderRadius: 5,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginBottom: 20,
   },
   buttonDisabled: {
@@ -224,22 +224,22 @@ const styles = StyleSheet.create({
   },
   buttonText: {
     fontSize: 18,
-    fontWeight: "bold",
-    color: "#fff",
+    fontWeight: 'bold',
+    color: '#fff',
   },
   footer: {
     marginTop: 16,
-    alignItems: "center",
+    alignItems: 'center',
   },
   footerText: {
     fontSize: 17,
-    color: "#666",
+    color: '#666',
   },
   link: {
     fontSize: 16,
-    fontWeight: "600",
-    color: "#007AFF",
-    textDecorationLine: "underline",
+    fontWeight: '600',
+    color: '#007AFF',
+    textDecorationLine: 'underline',
     marginTop: 4,
   },
-});
+})
