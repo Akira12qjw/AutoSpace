@@ -1,12 +1,12 @@
-import { ResizeMode, Video } from "expo-av";
-import { StyleSheet, View, Dimensions } from "react-native";
+import { ResizeMode, Video } from 'expo-av'
+import { StyleSheet, View, Dimensions } from 'react-native'
 
 export default function CarSceneNative() {
   return (
     <View style={styles.container}>
       <Video
         source={{
-          uri: "https://res.cloudinary.com/dathl84tp/video/upload/v1731238959/videos/Autospace_-_Brave_2024-11-10_17-20-53_hp3yqn.mp4",
+          uri: 'https://res.cloudinary.com/dathl84tp/video/upload/v1731238959/videos/Autospace_-_Brave_2024-11-10_17-20-53_hp3yqn.mp4',
         }}
         style={styles.video}
         resizeMode={ResizeMode.COVER}
@@ -15,17 +15,17 @@ export default function CarSceneNative() {
         isMuted={true}
       />
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
   video: {
-    position: "absolute",
+    position: 'absolute',
     top: 0,
     left: 0,
     bottom: 0,
@@ -33,4 +33,4 @@ const styles = StyleSheet.create({
     // Hoặc có thể dùng
     // ...StyleSheet.absoluteFillObject,
   },
-});
+})

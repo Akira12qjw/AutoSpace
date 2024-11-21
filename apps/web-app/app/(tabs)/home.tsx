@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react'
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 export default function HomeScreen() {
- 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -51,21 +50,21 @@ export default function HomeScreen() {
           </View>
         ) : (
           <View style={styles.rightSection}>
-          <TouchableOpacity
-            style={styles.loginButton}
-            onPress={async () => {
-              try {
-                await AsyncStorage.removeItem('authToken')
-                setIsLoggedIn(false)
-                console.log('Logged out successfully')
-              } catch (error) {
-                console.error('Error logging out:', error)
-              }
-            }}
-          >
-            <Text style={styles.loginText}>Đăng xuất</Text>
-          </TouchableOpacity>
-        </View>
+            <TouchableOpacity
+              style={styles.loginButton}
+              onPress={async () => {
+                try {
+                  await AsyncStorage.removeItem('authToken')
+                  setIsLoggedIn(false)
+                  console.log('Logged out successfully')
+                } catch (error) {
+                  console.error('Error logging out:', error)
+                }
+              }}
+            >
+              <Text style={styles.loginText}>Đăng xuất</Text>
+            </TouchableOpacity>
+          </View>
         )}
       </View>
       {/* Main Content */}

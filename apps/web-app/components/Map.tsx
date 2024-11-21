@@ -1,5 +1,5 @@
-import MapView, { Marker } from "react-native-maps";
-import { StyleSheet, Text, TextInput, View } from "react-native";
+import MapView, { Marker } from 'react-native-maps'
+import { StyleSheet, Text, TextInput, View } from 'react-native'
 // const accessToken = `${process.env.NEXT_PUBLIC_MAPBOX_TOKEN}`;
 // Mapbox.setAccessToken(accessToken);
 export default function Map() {
@@ -33,7 +33,7 @@ export default function Map() {
         />
       </MapView>
     </View>
-  );
+  )
 }
 
 const styles = StyleSheet.create({
@@ -41,12 +41,12 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   map: {
-    width: "100%",
-    height: "100%",
+    width: '100%',
+    height: '100%',
   },
   searchContainer: {
-    position: "absolute",
-    top: "6%",
+    position: 'absolute',
+    top: '6%',
     left: 10,
     right: 10,
     zIndex: 1,
@@ -54,11 +54,11 @@ const styles = StyleSheet.create({
   },
   searchInput: {
     height: 45,
-    backgroundColor: "white",
+    backgroundColor: 'white',
     borderRadius: 50,
     paddingHorizontal: 15,
     fontSize: 16,
-    shadowColor: "#000",
+    shadowColor: '#000',
     shadowOffset: {
       width: 0,
       height: 2,
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
     shadowRadius: 3.84,
     elevation: 5, // Cho Android
   },
-});
+})
