@@ -220,7 +220,12 @@ export class ValetsResolver {
     const valet = await this.prisma.valet.findUnique({
       where: { uid: args.uid },
     })
-    checkRowLevelPermission(user, valet.uid)
+    // Kiểm tra quyền
+    checkRowLevelPermission(
+      user,
+      valet.uid,
+      ['admin', 'manager'], // Cho phép admin và manager cập nhật
+    )
     return this.valetsService.update(args)
   }
 

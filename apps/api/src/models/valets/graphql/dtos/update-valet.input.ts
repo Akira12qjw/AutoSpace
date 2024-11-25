@@ -5,4 +5,6 @@ import { Valet } from '@prisma/client'
 @InputType()
 export class UpdateValetInput extends PartialType(CreateValetInput) {
   uid: Valet['uid']
+  displayName?: string
+  phoneNumber?: string
 }
