@@ -4,6 +4,7 @@ import { CompanyValetsQuery } from '@autospace/network/src/gql/generated'
 import { format } from 'date-fns'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
+import { gql, useApolloClient, useMutation } from '@apollo/client'
 import {
   Dialog,
   DialogTitle,
@@ -19,6 +20,7 @@ import {
   Paper,
   CircularProgress,
 } from '@mui/material'
+import { EditValetModal } from './EditValetModal'
 
 export interface IValetCardProps {
   valet: CompanyValetsQuery['companyValets'][0]
@@ -33,16 +35,26 @@ interface BookingTimeline {
   timestamp: string
 }
 
+const UPDATE_VALET = gql`
+  mutation UpdateValet($updateValetInput: UpdateValetInput!) {
+    updateValet(updateValetInput: $updateValetInput) {
+      uid
+      displayName
+      phoneNumber
+    }
+  }
+`
 export const ValetCard = ({
   valet,
   selectedValetId,
   setSelectedValetId,
 }: IValetCardProps) => {
+  const [isEditModalOpen, setIsEditModalOpen] = useState(false)
   const [bookings, setBookings] = useState<BookingTimeline[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
   const isSelected = selectedValetId === valet.uid
+  const [updateValet] = useMutation(UPDATE_VALET)
 
   const fetchBookingTimelineData = async () => {
     if (!isSelected) return
@@ -77,7 +89,36 @@ export const ValetCard = ({
   const handleToggleDialog = () => {
     setSelectedValetId(isSelected ? null : valet.uid)
   }
-  console.log('Phone: ', valet.phoneNumber)
+
+  const handleEdit = () => {
+    setIsEditModalOpen(true)
+  }
+
+  const handleSave = async (data: {
+    displayName: string
+    phoneNumber: string
+  }) => {
+    try {
+      await updateValet({
+        variables: {
+          updateValetInput: {
+            uid: valet.uid,
+            ...data,
+          },
+        },
+      })
+      setIsEditModalOpen(false)
+    } catch (error) {
+      console.error('Failed to update valet:', error)
+    }
+  }
+
+  // const handleCancel = () => {
+  //   setNewDisplayName(valet.displayName)
+  //   setNewPhoneNumber(valet.phoneNumber)
+  //   setIsEditMode(false)
+  // }
+
   return (
     <>
       <div className="w-64 space-y-2 flex-row justify-between">
@@ -91,7 +132,7 @@ export const ValetCard = ({
           />
         </div>
         <div className="p-2">
-          <div className="font-semibold ">
+          <div className="font-semibold">
             Tên nhân viên: {valet.displayName}
           </div>
           <div className="mb-1 text-lg text-gray-600">{valet.uid}</div>
@@ -105,15 +146,22 @@ export const ValetCard = ({
             {format(new Date(valet.createdAt), 'PP')}
           </div>
         </div>
-        <div>
+        <div className="flex gap-2">
           <button
-            onClick={handleToggleDialog}
+            onClick={handleEdit}
+            className="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition-colors"
+          >
+            {isEditModalOpen ? 'Hủy sửa' : ' Sửa thông tin'}
+          </button>
+          <button
+            onClick={() => setSelectedValetId(isSelected ? null : valet.uid)}
             className="mt-2 px-4 py-2 bg-primary text-white rounded hover:bg-primary-dark transition-colors"
           >
             {isSelected ? 'Ẩn chi tiết' : 'Xem chi tiết hoạt động'}
           </button>
         </div>
       </div>
+
       <Dialog
         open={isSelected}
         onClose={() => setSelectedValetId(null)}
@@ -165,6 +213,13 @@ export const ValetCard = ({
           </Button>
         </DialogActions>
       </Dialog>
+
+      <EditValetModal
+        isOpen={isEditModalOpen}
+        onClose={() => setIsEditModalOpen(false)}
+        valet={valet}
+        onSave={handleSave}
+      />
     </>
   )
 }

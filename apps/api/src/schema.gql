@@ -1174,6 +1174,7 @@ input LoginInput {
 
 input UpdateUserInput {
   uid: String!
+  name: String
 }
 
 input CreateAdminInput {

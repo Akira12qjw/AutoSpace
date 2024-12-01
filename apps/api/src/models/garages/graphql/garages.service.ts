@@ -1,3 +1,4 @@
+/* eslint-disable prettier/prettier */
 import { Injectable } from '@nestjs/common'
 import { FindManyGarageArgs, FindUniqueGarageArgs } from './dtos/find.args'
 import { PrismaService } from 'src/common/prisma/prisma.service'
@@ -57,8 +58,78 @@ export class GaragesService {
     })
   }
 
-  remove(args: FindUniqueGarageArgs) {
-    return this.prisma.garage.delete(args)
+  async remove(args: FindUniqueGarageArgs) {
+    return this.prisma.$transaction(async (prisma) => {
+      // 1. Lấy tất cả slots của garage
+      const slots = await prisma.slot.findMany({
+        where: {
+          garageId: args.where.id,
+        },
+        select: {
+          id: true,
+        },
+      })
+      const slotIds = slots.map((slot) => slot.id)
+      // 2. Lấy tất cả bookings liên quan đến các slots
+      const bookings = await prisma.booking.findMany({
+        where: {
+          slotId: {
+            in: slotIds,
+          },
+        },
+        select: {
+          id: true,
+        },
+      })
+      const bookingIds = bookings.map((booking) => booking.id)
+      // 3. Xóa booking timelines trước
+      await prisma.bookingTimeline.deleteMany({
+        where: {
+          bookingId: {
+            in: bookingIds,
+          },
+        },
+      })
+      //  Xóa valet assignments trước
+      await prisma.valetAssignment.deleteMany({
+        where: {
+          bookingId: {
+            in: bookingIds,
+          },
+        },
+      })
+      // 4. Xóa bookings
+      await prisma.booking.deleteMany({
+        where: {
+          slotId: {
+            in: slotIds,
+          },
+        },
+      })
+      // 5. Xóa slots
+      await prisma.slot.deleteMany({
+        where: {
+          garageId: args.where.id,
+        },
+      })
+
+      // Xóa verification
+      await prisma.verification.deleteMany({
+        where: {
+          garageId: args.where.id,
+        },
+      })
+      // 6. Xóa addresses
+      await prisma.address.deleteMany({
+        where: {
+          garageId: args.where.id,
+        },
+      })
+      // 7. Cuối cùng xóa garage
+      return prisma.garage.delete({
+        where: args.where,
+      })
+    })
   }
 
   groupSlotsByType(
