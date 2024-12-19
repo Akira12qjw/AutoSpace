@@ -4,4 +4,5 @@ import { User } from '../entity/user.entity'
 @InputType()
 export class UpdateUserInput extends PartialType(User) {
   uid: User['uid']
+  name?: User['name']
 }

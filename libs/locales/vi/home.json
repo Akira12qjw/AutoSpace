@@ -2,6 +2,8 @@
   "aside filter": {
     "Register": "Đăng Ký",
     "Login": "Đăng Nhập",
+    "Logout": "Đăng xuất",
+    "Later": "Để sau",
     "Need": "Bạn đang tìm kiếm",
     "parking": "chỗ đậu xe?",
     "Smart parking": "Đậu xe thông minh",
@@ -15,5 +17,11 @@
     "My Trips": "Quản lý pick drop",
     "Management": "Quản lý",
     "Logout": "Đăng Xuất"
+    "Profile": "Thông tin tài khoản",
+    "Edit": "Chỉnh sửa",
+    "Cancel": "Huỷ",
+    "Update sucessfull": "Cập nhật thành công",
+    "Please log out and log in to update information": "Vui lòng đăng xuất và đăng nhập lại để cập nhật thông tin",
+    "Save": "Lưu thay đổi"
   }
 }

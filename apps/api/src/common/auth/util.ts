@@ -4,7 +4,7 @@ import { ForbiddenException } from '@nestjs/common'
 export const checkRowLevelPermission = (
   user: GetUserType,
   requestedUid?: string | string[],
-  roles: Role[] = ['admin'],
+  roles: Role[] = ['admin', 'manager'],
 ) => {
   if (!requestedUid) return false
 

@@ -2,6 +2,8 @@
   "aside filter": {
     "Register": "Register",
     "Login": "Login",
+    "Logout": "Logout",
+    "Later": "Later",
     "Need": "Need",
     "parking": "parking?",
     "Smart parking": "Smart parking",
@@ -15,5 +17,11 @@
     "My Trips": "My Trips",
     "Management": "Management",
     "Logout": "Logout"
+    "Profile": "Profile",
+    "Edit": "Edit",
+    "Cancel": "Cancel",
+    "Update sucessfull": "Update sucessfull",
+    "Please log out and log in to update information": "Please log out and log in to update information",
+    "Save": "Save Changes"
   }
 }

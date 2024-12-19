@@ -17,6 +17,7 @@ export const metadata: Metadata = {
 }
 
 const MENUITEMS: MenuItem[] = [
+  { label: 'Profile', href: '/profile' },
   { label: 'Search', href: '/search' },
   { label: 'Bookings', href: '/bookings' },
 ]
