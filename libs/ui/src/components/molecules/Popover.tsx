@@ -25,6 +25,7 @@ interface Props {
   as?: ElementType
   initialOpen?: boolean
   placement?: Placement
+  zIndex?: number
 }
 
 export default function Popover({
@@ -34,6 +35,7 @@ export default function Popover({
   as: Element = 'div',
   initialOpen,
   placement = 'bottom-end',
+  zIndex = 50,
 }: Props) {
   const [open, setOpen] = useState(initialOpen || false)
   const arrowRef = useRef<HTMLElement>(null)
@@ -72,6 +74,7 @@ export default function Popover({
               ref={refs.setFloating}
               style={{
                 transformOrigin: `${data.middlewareData.arrow?.x}px top`,
+                zIndex,
                 ...floatingStyles,
               }}
               {...getFloatingProps()}

@@ -2,8 +2,10 @@
 import { IconDoorExit } from '@tabler/icons-react'
 import { signOut } from 'next-auth/react'
 import { Button } from '../atoms/Button'
-
+import { locales } from '@autospace/i18next/i18n'
+import { useTranslation } from 'react-i18next'
 export const LogoutButton = () => {
+  const { t } = useTranslation(['home'])
   return (
     <Button
       variant="outlined"
@@ -12,7 +14,7 @@ export const LogoutButton = () => {
       }}
       className="flex gap-2"
     >
-      <IconDoorExit /> Logout
+      <IconDoorExit /> {t('aside filter.Logout')}
     </Button>
   )
 }
