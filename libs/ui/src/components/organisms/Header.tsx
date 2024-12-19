@@ -50,7 +50,7 @@ export const Header = ({ type, menuItems }: IHeaderProps) => {
             {uid ? (
               <div className="flex gap-6 items-center">
                 <Popover
-                  className="flex cursor-pointer items-center py-1 hover:text-[#ffdd00]"
+                  className="flex cursor-pointer items-center py-2 hover:text-[#ffdd00]"
                   renderPopover={
                     <div className="relative rounded-sm border border-gray-600 bg-white shadow-md">
                       <div className="flex flex-col py-2 pr-28 pl-3">
@@ -69,6 +69,7 @@ export const Header = ({ type, menuItems }: IHeaderProps) => {
                       </div>
                     </div>
                   }
+                  zIndex={20}
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -109,7 +110,7 @@ export const Header = ({ type, menuItems }: IHeaderProps) => {
             ) : (
               <>
                 <Popover
-                  className="flex cursor-pointer items-center py-1 hover:text-[#ffdd00]"
+                  className="flex cursor-pointer items-center py-2 hover:text-[#ffdd00]"
                   renderPopover={
                     <div className="relative rounded-sm border border-gray-600 bg-white shadow-md">
                       <div className="flex flex-col py-2 pr-28 pl-3">
