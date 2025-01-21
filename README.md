@@ -1,6 +1,6 @@
 # Autospace Workshop
 
-This repository contains the Autospace Workshop project, which includes multiple applications and libraries. This guide will help you set up the project locally and run the applications.
+This is a project that helps users choose and rent garages on the map.
 
 ## Prerequisites
 
@@ -10,6 +10,30 @@ Before you begin, ensure you have the following installed on your system:
 - Yarn (>= 1.22.x)
 - Docker
 - Git
+
+## Some images
+### 1. Login and Register
+![image](https://github.com/user-attachments/assets/652c9538-2416-428f-a69a-268364e40ca6)
+
+![image](https://github.com/user-attachments/assets/15b1cd2a-e860-4ecb-8a35-db6620ad5156)
+
+### 2. Home page
+![image](https://github.com/user-attachments/assets/de53b732-ea9e-47c6-9169-e348ef047d4d)
+
+### 3. List garage
+![image](https://github.com/user-attachments/assets/6e0d5aa7-6ac5-4e3b-877c-f05fe8d7c052)
+
+### 4. Add garage
+![image](https://github.com/user-attachments/assets/aae9c200-edb4-4054-af58-b513d96bdd32)
+
+### 5. Valet info
+![image](https://github.com/user-attachments/assets/a61492e0-7350-4881-822a-c0a5498e0d57)
+
+### 6. Vehicle pick-up and delivery interface (Valet)
+![image](https://github.com/user-attachments/assets/b8908ac3-954f-4fe0-9dea-8dbc07693ff2)
+
+### 7. Home page admin
+![image](https://github.com/user-attachments/assets/db41587a-af1d-475f-8943-bd24b7862841)
 
 ## Getting Started
 
